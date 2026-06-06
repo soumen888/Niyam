@@ -1,0 +1,10 @@
+# Ignore the venv directory
+venv/
+.env
+
+# Ignore all PDF files
+*.pdf
+
+# Ignore a specific Python script
+bulk_generator.py
+ticker_update.py
