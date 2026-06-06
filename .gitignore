@@ -2,5 +2,6 @@
 venv/
 .env
 
-# Ignore all PDF files
+# Ignore all files
 *.pdf
+*.txt
