@@ -8,10 +8,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Constants for authentication (pulled securely from .env)
 api_key = os.getenv('API_KEY')
 api_secret = os.getenv('SECRET_KEY')
-base_url = 'https://fapi.niyam.exchange'
+base_url = 'https://api.niyam.exchange'
 
 def generate_signature(api_secret, data_to_sign):
     return hmac.new(api_secret.encode('utf-8'), data_to_sign.encode('utf-8'), hashlib.sha256).hexdigest()
@@ -60,7 +59,7 @@ def reduce_margin():
         response_data = response.json()
         print('Margin reduced successfully:', json.dumps(response_data, indent=4))
     except requests.exceptions.HTTPError as err:
-        print(f"Error: {err.response.text if err.response else err}")
+        print(f"Error: {err.response.text if err.response is not None else err}")
     except Exception as e:
         print(f"An unexpected error occurred: {str(e)}")
 

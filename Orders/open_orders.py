@@ -16,7 +16,7 @@ def generate_signature(api_secret, data_to_sign):
     return hmac.new(api_secret.encode('utf-8'), data_to_sign.encode('utf-8'), hashlib.sha256).hexdigest()
 
 def get_open_orders():
-    base_url = 'https://fapi.niyam.exchange'
+    base_url = 'https://api.niyam.exchange'
 
     # Generate the current timestamp
     timestamp = str(int(time.time() * 1000))

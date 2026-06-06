@@ -18,7 +18,7 @@ def generate_signature(api_secret, data_to_sign):
 
 def delete_order():
     client_order_id = input("Enter the clientOrderId to delete: ")
-    delete_order_url = "https://fapi.niyam.exchange/v1/order/delete-order"
+    delete_order_url = "https://api.niyam.exchange/v1/order/delete-order"
     timestamp = str(int(time.time() * 1000))
     
     params = {

@@ -11,7 +11,7 @@ load_dotenv()
 # Constants for authentication (pulled securely from .env)
 api_key = os.getenv('API_KEY')
 api_secret = os.getenv('SECRET_KEY')
-base_url = "https://fapi.niyam.exchange"
+base_url = "https://api.niyam.exchange"
 
 def generate_signature(api_secret, data_to_sign):
     return hmac.new(api_secret.encode('utf-8'), data_to_sign.encode('utf-8'), hashlib.sha256).hexdigest()
@@ -20,7 +20,7 @@ def update_preference():
     endpoint = "/v1/exchange/update/preference"
     leverage = 10 # Ensure leverage is an integer
     contract_name = "BTCINR" # Replace with the appropriate contract name
-    margin_mode = "CROSS" # Ensure marginMode is either 'ISOLATED' or 'CROSS'
+    margin_mode = "ISOLATED" # Ensure marginMode is either 'ISOLATED' or 'CROSS'
 
     # Generate the current timestamp
     timestamp = str(int(time.time() * 1000))
@@ -56,7 +56,7 @@ def update_preference():
         response_data = response.json()
         print('Preference updated successfully:', json.dumps(response_data, indent=4))
     except requests.exceptions.HTTPError as err:
-        print(f"Error: {err.response.text if err.response else err}")
+        print(f"Error: {err.response.text if err.response is not None else err}")
     except Exception as e:
         print(f"An unexpected error occurred: {str(e)}")
 

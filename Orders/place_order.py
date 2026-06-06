@@ -11,7 +11,7 @@ load_dotenv()
 # Constants for authentication (pulled securely from .env)
 api_key = os.getenv('API_KEY')
 api_secret = os.getenv('SECRET_KEY')
-base_url = 'https://fapi.niyam.exchange'
+base_url = 'https://api.niyam.exchange'
 
 def generate_signature(api_secret, data_to_sign):
     return hmac.new(api_secret.encode('utf-8'), data_to_sign.encode('utf-8'), hashlib.sha256).hexdigest()
@@ -26,13 +26,13 @@ def place_order():
         'placeType': 'ORDER_FORM',          # Type of order placement, e.g., 'ORDER_FORM'
         'quantity': 0.002,                   # Quantity of the asset to trade
         'side': 'BUY',                       # Order side, either 'BUY' or 'SELL'
-        'symbol': 'BTCUSDT',                # Trading pair, e.g., Bitcoin to USDT
+        'symbol': 'BTCINR',                # Trading pair, e.g., Bitcoin to USDT
         'type': 'MARKET',                   # Order type, either 'MARKET' or 'LIMIT'
         'reduceOnly': False,                # Whether to reduce an existing position only
         'marginAsset': 'INR',               # The asset used as margin (INR in this case)
         'deviceType': 'WEB',                # Device type (e.g., WEB, MOBILE)
         'userCategory': 'EXTERNAL',         # User category (e.g., EXTERNAL, INTERNAL)
-        'price': 50000,                     # Price for the limit order (included here but irrelevant for market orders)
+        'price': 5000000,                     # Price for the limit order (included here but irrelevant for market orders)
     }
 
     # Convert the parameters to a JSON string to sign
@@ -62,7 +62,7 @@ def place_order():
 
     except requests.exceptions.HTTPError as err:
         # Handle HTTP errors specifically
-        print(f"Error: {err.response.text if err.response else err}")
+        print(f"Error: {err.response.text if err.response is not None else err}")
 
     except Exception as e:
         # Handle any other unexpected errors

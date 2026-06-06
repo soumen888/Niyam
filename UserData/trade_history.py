@@ -19,7 +19,7 @@ def generate_signature(api_secret, data_to_sign):
 def trade_history():
     # Generate the current timestamp
     timestamp = str(int(time.time() * 1000))
-    trade_history_url = "https://fapi.niyam.exchange/v1/user-data/trade-history"
+    trade_history_url = "https://api.niyam.exchange/v1/user-data/trade-history"
 
     # Prepare parameters with the current timestamp
     params = {

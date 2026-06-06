@@ -17,7 +17,7 @@ def generate_signature(api_secret, data_to_sign):
 def linked_orders():
     link_id = input("Enter the Link Id: ")
     timestamp = str(int(time.time() * 1000))
-    linked_orders_url = "https://fapi.niyam.exchange/v1/order/linked-orders"
+    linked_orders_url = "https://api.niyam.exchange/v1/order/linked-orders"
     
     url = f"{linked_orders_url}/{link_id}"
     

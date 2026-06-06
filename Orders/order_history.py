@@ -19,7 +19,7 @@ def order_history():
     # Generate the current timestamp
     timestamp = str(int(time.time() * 1000))
     
-    order_history_url = "https://fapi.niyam.exchange/v1/order/order-history"
+    order_history_url = "https://api.niyam.exchange/v1/order/order-history"
     
     params = {
         'sortOrder': 'desc',

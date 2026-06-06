@@ -56,11 +56,10 @@ def edit_order(client_order_id, quantity=None, stop_price=None, price=None):
         response_data = response.json()
         print('Order edit request sent', json.dumps(response_data, indent=4), "for:", quantity)
     except requests.exceptions.HTTPError as err:
-        print(response)
-        # print(f"Error: {err.response.text if err.response else err}")
+        print(f"Error: {err.response.text if err.response is not None else err}")
     except Exception as e:
         print(f"An unexpected error occurred: {str(e)}")
 
 if __name__ == "__main__":
     # Example usage: Replace 'YOUR_CLIENT_ORDER_ID' with the actual ID
-    edit_order("YOUR_CLIENT_ORDER_ID", quantity=1)
+    edit_order("11", quantity=1)

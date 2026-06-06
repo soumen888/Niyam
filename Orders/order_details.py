@@ -20,7 +20,7 @@ def order_details():
     # Function to fetch order details based on client order id
     client_order_id = input("Enter the client order Id: ")
     timestamp = str(int(time.time() * 1000))
-    order_url = "https://fapi.niyam.exchange/v1/order"
+    order_url = "https://api.niyam.exchange/v1/order"
     url = f"{order_url}/{client_order_id}"
     
     params = {

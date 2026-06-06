@@ -18,7 +18,7 @@ def generate_signature(api_secret, data_to_sign):
 def ref_order_details():
     reference_id = input("Enter the reference Id: ")
     timestamp = str(int(time.time() * 1000))
-    order_url = "https://fapi.niyam.exchange/v1/order/ref-id"
+    order_url = "https://api.niyam.exchange/v1/order/ref-id"
     url = f"{order_url}/{reference_id}"
     
     params = {

@@ -19,7 +19,7 @@ def add_margin():
     position_id = input("Enter the positionId: ")
     amount_input = input("Enter the amount: ")
 
-    add_margin_url = "https://fapi.niyam.exchange/v1/order/add-margin"
+    add_margin_url = "https://api.niyam.exchange/v1/order/add-margin"
 
     try:
         amount = int(amount_input)

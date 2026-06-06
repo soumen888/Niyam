@@ -6,6 +6,12 @@ This toolkit is built for algorithmic traders, developers, and quants who need a
 
 ---
 
+## ⚠️ Important API URL Note
+All API endpoints (both public and private) work perfectly fine with the standard public URL: **`https://api.niyam.exchange/`**.
+For private/authenticated API calls, only the API Key and Secret are needed. You do **not** need to use the `fapi` subdomain shown in some legacy documentation.
+
+---
+
 ## 📁 Directory Structure & Features
 
 The repository is organized into 5 core modules, each handling a specific domain of the exchange API:
