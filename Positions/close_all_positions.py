@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Constants for authentication (pulled securely from .env)
 api_key = os.getenv('API_KEY')
 api_secret = os.getenv('SECRET_KEY')
 base_url = 'https://api.niyam.exchange'
@@ -19,28 +18,22 @@ def generate_signature(api_secret, data_to_sign):
 def close_all_positions():
     endpoint = "/v1/positions/close-all-positions"
     
-    # Generate the current timestamp
     timestamp = str(int(time.time() * 1000))
     
-    # Prepare the request payload
     params = {
         'timestamp': timestamp
     }
     
-    # Convert the request body to a JSON string for signing
     data_to_sign = json.dumps(params, separators=(',', ':'))
     
-    # Generate the signature (ensure 'generate_signature is properly defined)
     signature = generate_signature(api_secret, data_to_sign)
     
-    # Headers for the DELETE request
     headers = {
         'api-key': api_key,
         'Content-Type': 'application/json',
         'signature': signature
     }
     
-    # Construct the full URL
     cancel_orders_url = f"{base_url}{endpoint}"
     
     try:
