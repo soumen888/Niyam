@@ -25,7 +25,8 @@ def get_multiple_orders():
 
     # Prepare the request body (JSON)
     params = {
-        "clientOrderIds": ["clientOrderId1", "clientOrderId2"]
+        "clientOrderIds": ["clientOrderId1", "clientOrderId2"],
+        "timestamp": timestamp
     }
 
     # Convert the request body to a JSON string for signing

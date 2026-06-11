@@ -1,3 +1,9 @@
-# Ignore the venv directory
-venv/
+
 .env
+*.pdf
+
+venv/
+Testing/
+Niyam/
+__pycache__/
+
